@@ -19,7 +19,8 @@ const Navbar = async () => {
           {session && session.user ? (
             <>
               <Link href="/startup/create">
-                <span>Create</span>
+                <span className="max-sm:hidden">Create</span>
+                <BadgePlus className="size-6 sm:hidden" />
               </Link>
               <button onClick={handleSignOut}>
                 <span className="max-sm:hidden">Logout</span>
