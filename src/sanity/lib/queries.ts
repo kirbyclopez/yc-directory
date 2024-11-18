@@ -82,7 +82,7 @@ export const STARTUPS_BY_AUTHOR_QUERY = defineQuery(`
     slug,
     _createdAt,
     author -> {
-      _id, name, image, bio
+      _id, name, image, bio, username, email
     }, 
     views,
     description,
@@ -106,7 +106,9 @@ export const PLAYLIST_BY_SLUG_QUERY = defineQuery(`
         name,
         slug,
         image,
-        bio
+        bio,
+        username,
+        email
       },
       views,
       description,

@@ -24,12 +24,13 @@ type StartupPageProps = {
 
 const StartupPage = async ({ params }: StartupPageProps) => {
   const { id } = await params;
-  const [post, { select: editorPosts }] = await Promise.all([
+  const [post, playlist] = await Promise.all([
     client.fetch(STARTUP_BY_ID_QUERY, { id }),
     client.fetch(PLAYLIST_BY_SLUG_QUERY, {
       slug: "editor-picks",
     }),
   ]);
+  const editorPosts = playlist?.select || [];
 
   if (!post) return notFound();
 
